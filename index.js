@@ -17,14 +17,14 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://befriends.netlify.app/",
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
 // DB connection
-mongoose.connect("mongodb://127.0.0.1:27017/ClientData")
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.error("DB error:", err));
 
