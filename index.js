@@ -26,6 +26,8 @@ app.use(
   })
 );
 
+app.options("*", cors());
+
 //  Database connection (Atlas)
 mongoose
   .connect(process.env.MONGO_URI)
